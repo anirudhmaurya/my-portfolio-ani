@@ -5,8 +5,10 @@ import './Hero.css';
 const ROLES = [
   'Software Engineer',
   'System Design Enthusiast',
-  'Backend Developer',
-  'Open Source Builder',
+  'Problem Solver',
+  'GenAI & LLM Enthusiast',
+  'Data Scientist & ML Engineer',
+  'AI Automation Expert',
 ];
 
 const Hero = () => {
