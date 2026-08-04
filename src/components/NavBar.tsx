@@ -29,11 +29,7 @@ const NavBar = () => {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="navbar">
       <div className="navbar__inner container">
         {/* Logo */}
-        <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-bracket">&lt;</span>
-          <span className="navbar__logo-name">Anirudh</span>
-          <span className="navbar__logo-bracket"> /&gt;</span>
-        </Link>
+        <Link to="/" className="navbar__logo"><span className="navbar__logo-bracket">&lt;</span><span className="navbar__logo-name">Anirudh</span><span className="navbar__logo-bracket"> /&gt;</span></Link>
 
         {/* Desktop links */}
         <ul className="navbar__links">

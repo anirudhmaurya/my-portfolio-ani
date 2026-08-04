@@ -28,6 +28,7 @@
   color: var(--text-primary);
   text-decoration: none;
   transition: var(--transition);
+  letter-spacing: -0.04em;
 }
 
 .navbar__logo:hover { color: var(--color-primary-light); }
@@ -38,7 +39,7 @@
 
 .navbar__logo-name {
   color: var(--text-primary);
-  margin: 0 2px;
+  margin: 0;
 }
 
 /* Desktop Nav Links */

@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiPhone } from 'react-icons/fi';
 import './Footer.css';
 
 const Footer = () => {
@@ -9,13 +9,9 @@ const Footer = () => {
       <div className="container footer__inner">
         {/* Left */}
         <div className="footer__left">
-          <span className="footer__logo">
-            <span className="footer__logo-bracket">&lt;</span>
-            Anirudh
-            <span className="footer__logo-bracket"> /&gt;</span>
-          </span>
+          <span className="footer__logo"><span className="footer__logo-bracket">&lt;</span>Anirudh<span className="footer__logo-bracket"> /&gt;</span></span>
           <p className="footer__tagline">
-            Building reliable systems, one commit at a time.
+            Building intelligent systems with AI, ML & GenAI.
           </p>
         </div>
 
@@ -35,8 +31,11 @@ const Footer = () => {
           <a href="https://www.linkedin.com/in/anirudhmaurya/" target="_blank" rel="noopener noreferrer" className="footer__social-icon" aria-label="LinkedIn">
             <FiLinkedin size={20} />
           </a>
-          <a href="mailto:anirudh@example.com" className="footer__social-icon" aria-label="Email">
+          <a href="mailto:anirudh.km24@gmail.com" className="footer__social-icon" aria-label="Email">
             <FiMail size={20} />
+          </a>
+          <a href="tel:+919532044878" className="footer__social-icon" aria-label="Phone">
+            <FiPhone size={20} />
           </a>
         </div>
 
