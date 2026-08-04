@@ -94,7 +94,98 @@
 .navbar__cta {
   padding: 9px 20px;
   font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
 }
+
+/* Hire Me Dropdown */
+.hire-wrap {
+  position: relative;
+}
+
+.hire-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 300px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius);
+  padding: 14px 16px 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(16px);
+  animation: dropIn 0.18s ease;
+  z-index: 999;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hire-dropdown__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.hire-dropdown__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+
+.hire-dropdown__icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.hire-dropdown__value {
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  flex: 1;
+  word-break: break-all;
+  font-family: var(--font-code);
+}
+
+.hire-dropdown__copy {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.hire-dropdown__copy:hover {
+  color: var(--color-primary-light);
+  border-color: var(--border-hover);
+  background: rgba(124,58,237,0.1);
+}
+
+.hire-dropdown__footer-link {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-primary-light);
+  text-decoration: none;
+  padding: 6px 0 2px;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.hire-dropdown__footer-link:hover { opacity: 1; }
 
 /* Hamburger */
 .navbar__hamburger {

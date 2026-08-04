@@ -91,12 +91,15 @@
   color: var(--text-primary);
   font-size: 0.75rem;
   white-space: nowrap;
-  padding: 5px 10px;
+  padding: 5px 8px;
   border-radius: 6px;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .footer__tooltip::after {
@@ -112,6 +115,40 @@
 .footer__tooltip-wrap:hover .footer__tooltip {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+  pointer-events: all;
+}
+
+/* Invisible bridge to prevent hover gap between icon and tooltip */
+.footer__tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 13px;
+}
+
+.footer__tooltip-text {
+  font-family: var(--font-code);
+  color: var(--text-primary);
+}
+
+.footer__tooltip-copy {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.footer__tooltip-copy:hover {
+  color: var(--color-primary-light);
+  border-color: var(--border-hover);
 }
 
 /* Back to top */

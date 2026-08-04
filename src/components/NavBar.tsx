@@ -1,12 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiGithub, FiLinkedin, FiMenu, FiX } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMenu, FiX, FiMail, FiPhone, FiCopy, FiCheck } from 'react-icons/fi';
 import './NavBar.css';
 
+const CONTACT = {
+  email: 'anirudh.km24@gmail.com',
+  phone: '+91-9532044878',
+};
+
 const NavBar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
+  const [scrolled, setScrolled]       = useState(false);
+  const [menuOpen, setMenuOpen]       = useState(false);
+  const [dropOpen, setDropOpen]       = useState(false);
+  const [copied, setCopied]           = useState<'email' | 'phone' | null>(null);
+  const location   = useLocation();
+  const dropRef    = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -14,8 +22,26 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close menu on route change
+  // Close mobile menu on route change
   useEffect(() => setMenuOpen(false), [location]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
+        setDropOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const copyToClipboard = (text: string, type: 'email' | 'phone') => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(type);
+      setTimeout(() => setCopied(null), 2000);
+    });
+  };
 
   const navLinks = [
     { label: 'About',    href: '/#about' },
@@ -50,9 +76,54 @@ const NavBar = () => {
           <a href="https://www.linkedin.com/in/anirudhmaurya/" target="_blank" rel="noopener noreferrer" className="navbar__icon" aria-label="LinkedIn">
             <FiLinkedin size={20} />
           </a>
-          <a href="/#contact" className="btn-primary navbar__cta">
-            Hire Me
-          </a>
+
+          {/* Hire Me dropdown */}
+          <div className="hire-wrap" ref={dropRef}>
+            <button
+              className="btn-primary navbar__cta"
+              id="hire-me-btn"
+              onClick={() => setDropOpen(!dropOpen)}
+              aria-expanded={dropOpen}
+            >
+              Hire Me
+            </button>
+
+            {dropOpen && (
+              <div className="hire-dropdown" role="dialog" aria-label="Contact details">
+                <p className="hire-dropdown__label">Get in touch</p>
+
+                <div className="hire-dropdown__row">
+                  <FiMail size={15} className="hire-dropdown__icon" />
+                  <span className="hire-dropdown__value">{CONTACT.email}</span>
+                  <button
+                    className="hire-dropdown__copy"
+                    onClick={() => copyToClipboard(CONTACT.email, 'email')}
+                    aria-label="Copy email"
+                    title="Copy"
+                  >
+                    {copied === 'email' ? <FiCheck size={14} /> : <FiCopy size={14} />}
+                  </button>
+                </div>
+
+                <div className="hire-dropdown__row">
+                  <FiPhone size={15} className="hire-dropdown__icon" />
+                  <span className="hire-dropdown__value">{CONTACT.phone}</span>
+                  <button
+                    className="hire-dropdown__copy"
+                    onClick={() => copyToClipboard(CONTACT.phone, 'phone')}
+                    aria-label="Copy phone"
+                    title="Copy"
+                  >
+                    {copied === 'phone' ? <FiCheck size={14} /> : <FiCopy size={14} />}
+                  </button>
+                </div>
+
+                <a href="/#contact" className="hire-dropdown__footer-link" onClick={() => setDropOpen(false)}>
+                  Send a message ↓
+                </a>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile Hamburger */}
