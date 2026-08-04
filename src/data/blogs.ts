@@ -1,4 +1,15 @@
-export const blogs = [
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  category: string;
+  tags: string[];
+  date: string;
+  readTime: string;
+}
+
+export const blogs: BlogPost[] = [
   {
     id: "caching-strategies",
     title: "Caching Strategies in Distributed Systems",

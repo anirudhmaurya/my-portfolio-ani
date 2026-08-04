@@ -20,7 +20,7 @@ const BlogPage = () => {
         b.tags.some((t) => t.toLowerCase().includes(search.toLowerCase()));
       return matchCat && matchSearch;
     })
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <>

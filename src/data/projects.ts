@@ -1,4 +1,18 @@
-export const projects = [
+export interface Project {
+  id: string;
+  title: string;
+  shortDesc: string;
+  fullDesc: string;
+  tech: string[];
+  github: string | null;
+  demo: string | null;
+  demoVideo: string | null;
+  featured: boolean;
+  date: string;
+  category: string;
+}
+
+export const projects: Project[] = [
   {
     id: "algo-trading",
     title: "Algo Trading System",
@@ -63,7 +77,7 @@ A modern, data-driven portfolio website built with React and React Router.
 
 ## Features
 - Multi-page routing with React Router v6
-- Data-driven: add projects/blogs by editing one JS file
+- Data-driven: add projects/blogs by editing one TS file
 - Dark mode design with glassmorphism
 - Tech blog with markdown rendering
 - Project detail pages with GitHub-style layout
@@ -71,7 +85,7 @@ A modern, data-driven portfolio website built with React and React Router.
 ## Design
 Built with Vanilla CSS, Google Fonts (Inter + Fira Code), and React Icons.
 `,
-    tech: ["React", "React Router", "JavaScript", "CSS", "React Icons"],
+    tech: ["React", "TypeScript", "React Router", "CSS", "React Icons"],
     github: "https://github.com/anirudhmaurya",
     demo: "https://anirudhmaurya.dev",
     demoVideo: null,

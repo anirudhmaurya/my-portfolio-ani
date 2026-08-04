@@ -18,7 +18,7 @@ const Hero = () => {
   // Typewriter effect
   useEffect(() => {
     const currentRole = ROLES[roleIndex];
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout>;
 
     if (!isDeleting && charIndex < currentRole.length) {
       timeout = setTimeout(() => setCharIndex((c) => c + 1), 80);

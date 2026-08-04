@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FiArrowLeft, FiCalendar, FiClock, FiTag, FiShare2 } from 'react-icons/fi';
 import { blogs } from '../data/blogs';
@@ -5,10 +6,10 @@ import Footer from '../components/Footer';
 import './BlogPost.css';
 
 // Simple markdown-to-JSX renderer (no external lib needed)
-const renderMarkdown = (content) => {
-  const lines = content.split('\n');
-  const elements = [];
-  let codeBlock = [];
+const renderMarkdown = (content: string): React.ReactElement[] => {
+  const lines: string[] = content.split('\n');
+  const elements: React.ReactElement[] = [];
+  let codeBlock: string[] = [];
   let inCode = false;
   let codeLang = '';
 
