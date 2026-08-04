@@ -32,7 +32,7 @@ const Footer = () => {
           <a href="https://github.com/anirudhmaurya" target="_blank" rel="noopener noreferrer" className="footer__social-icon" aria-label="GitHub">
             <FiGithub size={20} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer__social-icon" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/anirudhmaurya/" target="_blank" rel="noopener noreferrer" className="footer__social-icon" aria-label="LinkedIn">
             <FiLinkedin size={20} />
           </a>
           <a href="mailto:anirudh@example.com" className="footer__social-icon" aria-label="Email">
