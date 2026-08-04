@@ -31,12 +31,18 @@ const Footer = () => {
           <a href="https://www.linkedin.com/in/anirudhmaurya/" target="_blank" rel="noopener noreferrer" className="footer__social-icon" aria-label="LinkedIn">
             <FiLinkedin size={20} />
           </a>
-          <a href="mailto:anirudh.km24@gmail.com" className="footer__social-icon" aria-label="Email">
-            <FiMail size={20} />
-          </a>
-          <a href="tel:+919532044878" className="footer__social-icon" aria-label="Phone">
-            <FiPhone size={20} />
-          </a>
+          <div className="footer__tooltip-wrap">
+            <a href="mailto:anirudh.km24@gmail.com" className="footer__social-icon" aria-label="Email">
+              <FiMail size={20} />
+            </a>
+            <span className="footer__tooltip">anirudh.km24@gmail.com</span>
+          </div>
+          <div className="footer__tooltip-wrap">
+            <a href="tel:+919532044878" className="footer__social-icon" aria-label="Phone">
+              <FiPhone size={20} />
+            </a>
+            <span className="footer__tooltip">+91-9532044878</span>
+          </div>
         </div>
 
         {/* Back to top */}
